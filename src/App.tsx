@@ -13,14 +13,6 @@ type TodolistType = {
 
 function App() {
 
-    // let [taskObj, setTasks] = useState([
-    //     { id: v1(), title: "HTML&CSS", isDone: true },
-    //     { id: v1(), title: "JS", isDone: true },
-    //     { id: v1(), title: "ReactJS", isDone: false },
-    //     { id: v1(), title: "Rest API", isDone: false },
-    //     { id: v1(), title: "GraphQL", isDone: false },
-    // ]);
-
     function removeTask(id: string, todolistId: string) {
         let tasks = taskObj[todolistId]
         let filteredTasks = tasks.filter(t => t.id != id);
@@ -85,6 +77,7 @@ function App() {
 
     return (
         <div className="App">
+            <input /><button>x</button>;
             {
                 todolists.map((tl) => {
 
