@@ -2,7 +2,7 @@ import React, {ChangeEvent, ChangeEventHandler} from 'react';
 import { AddItemForm } from './AddItemForm';
 import {FilterValuesType} from './App';
 
-type TaskType = {
+export type TaskType = {
     id: string
     title: string
     isDone: boolean

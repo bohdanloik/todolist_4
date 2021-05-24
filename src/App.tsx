@@ -4,6 +4,7 @@ import {Todolist} from './Todolist';
 import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
 import { isPropertySignature } from 'typescript';
+import { TaskType } from './Todolist';
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -11,6 +12,10 @@ type TodolistType = {
     id : string
     title: string
     filter: FilterValuesType
+}
+
+type TasksStateType = {
+    [key: string] : Array<TaskType>
 }
 
 function App() {
@@ -62,7 +67,7 @@ function App() {
         setTasks({...taskObj})
     }
 
-    let [taskObj, setTasks] = useState({
+    let [taskObj, setTasks] = useState<TasksStateType>({
         [todolistId1] : [
         { id: v1(), title: "HTML&CSS", isDone: true },
         { id: v1(), title: "JS", isDone: true },
@@ -76,10 +81,19 @@ function App() {
         ]
     });
 
+    function addTodolist(title: string) {
+        let todolist : TodolistType = {
+            id : v1(),
+            title: title,
+            filter: 'all'
+        }
+        setTodolist([todolist, ...todolists])
+        setTasks({...taskObj, [todolist.id]:[]})
+    }
 
     return (
         <div className="App">
-            <AddItemForm addItem={(title: string)=>{alert('title')}} />
+            <AddItemForm addItem={addTodolist} />
             {
                 todolists.map((tl) => {
 
