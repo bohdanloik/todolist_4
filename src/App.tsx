@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from './Todolist';
 import { v1 } from 'uuid';
+import { AddItemForm } from './AddItemForm';
+import { isPropertySignature } from 'typescript';
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -48,8 +50,8 @@ function App() {
 
 
     let [todolists, setTodolist]= useState<Array<TodolistType>>([
-        { id: todolistId1, title: "What to learn", filter: "active"},
-        { id: todolistId2, title: "What to buy", filter: "completed"}
+        { id: todolistId1, title: "What to learn", filter: "all"},
+        { id: todolistId2, title: "What to buy", filter: "all"}
     ])
 
     let removeTodoList = (todolistId: string) => {
@@ -77,7 +79,7 @@ function App() {
 
     return (
         <div className="App">
-            <input /><button>x</button>;
+            <AddItemForm addItem={(title: string)=>{alert('title')}} />
             {
                 todolists.map((tl) => {
 
