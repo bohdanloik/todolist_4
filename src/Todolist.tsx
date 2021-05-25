@@ -37,7 +37,7 @@ export function Todolist(props: PropsType) {
     }
     return <div>
 
-        <h3>{props.title} <button onClick={removeTodoList}>x</button></h3>
+        <h3><EditableSpan title={props.title} onChange={(value)=> {alert(value)}}/>  <button onClick={removeTodoList}>x</button></h3>
         <AddItemForm addItem={addTask}/>
         <ul>
             {
