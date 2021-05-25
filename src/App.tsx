@@ -76,6 +76,14 @@ function App() {
         setTasks({...taskObj})
     }
 
+    function changeTodoListTitle(id: string, newTitle: string) {
+        const todolist = todolists.find(tl =>tl.id === id);
+        if(todolist){
+            todolist.title = newTitle;
+            setTodolist([...todolists]);
+        }
+    }
+
     let [taskObj, setTasks] = useState<TasksStateType>({
         [todolistId1] : [
         { id: v1(), title: "HTML&CSS", isDone: true },
@@ -126,7 +134,8 @@ function App() {
                             changeTaskStatus={changeStatus}
                             changeTaskTitle={changeTaskTitle}
                             filter={tl.filter}
-                            removeTodoList={removeTodoList} />
+                            removeTodoList={removeTodoList}
+                            changeTodoListTitle={changeTodoListTitle} />
                 })
             }
             
