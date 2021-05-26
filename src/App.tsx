@@ -41,7 +41,6 @@ function App() {
             task.isDone = isDone;
             setTasks({...taskObj});
         }
-        
     }
     function changeTaskTitle(taskId:string, newTitle: string, todolistId: string) {
         let tasks = taskObj[todolistId];
@@ -61,7 +60,6 @@ function App() {
     }
     let todolistId1 = v1();
     let todolistId2 = v1();
-
 
     let [todolists, setTodolist]= useState<Array<TodolistType>>([
         { id: todolistId1, title: "What to learn", filter: "all"},
@@ -138,7 +136,6 @@ function App() {
                             changeTodoListTitle={changeTodoListTitle} />
                 })
             }
-            
         </div>
     );
 }
