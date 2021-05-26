@@ -21,11 +21,9 @@ type PropsType = {
     filter: FilterValuesType
     removeTodoList:(todolistId: string) => void
     changeTodoListTitle:(id: string, newTitle: string) => void
-
 }
 
 export function Todolist(props: PropsType) {
-
 
     const onAllClickHandler = () => props.changeFilter("all", props.id);
     const onActiveClickHandler = () => props.changeFilter("active", props.id);
