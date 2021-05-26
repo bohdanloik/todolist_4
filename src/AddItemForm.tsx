@@ -3,10 +3,10 @@ import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
 type AddItemFormPropsType = {
     addItem: (title: string) => void;
 };
+
 export function AddItemForm(props: AddItemFormPropsType) {
     let [title, setTitle] = useState("");
     let [error, setError] = useState<string | null>(null);
-
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value);
@@ -17,7 +17,8 @@ export function AddItemForm(props: AddItemFormPropsType) {
         if (e.charCode === 13) {
             addTask();
         }
-    };
+    }; 
+
     const addTask = () => {
         if (title.trim() !== '') {
             props.addItem(title.trim());
@@ -35,5 +36,4 @@ export function AddItemForm(props: AddItemFormPropsType) {
         <button onClick={addTask}>+</button>
         {error && <div className='error-message'>{error}</div>}
     </div>;
-
 }
