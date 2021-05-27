@@ -1,3 +1,5 @@
+import { IconButton } from '@material-ui/core';
+import { Delete } from '@material-ui/icons';
 import React, {ChangeEvent, ChangeEventHandler} from 'react';
 import { AddItemForm } from './AddItemForm';
 import {FilterValuesType} from './App';
@@ -40,8 +42,14 @@ export function Todolist(props: PropsType) {
     }
     return <div>
 
-        <h3><EditableSpan title={props.title} onChange={changeTodoListTitle}/>  <button onClick={removeTodoList}>x</button></h3>
+        <h3><EditableSpan title={props.title} onChange={changeTodoListTitle}/>   <IconButton aria-label="delete" onClick={removeTodoList}>
+            <Delete />
+        </IconButton>
+        </h3>
+
+        
         <AddItemForm addItem={addTask}/>
+        
         <ul>
             {
                 props.tasks.map(t => {
