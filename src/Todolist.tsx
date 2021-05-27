@@ -1,4 +1,4 @@
-import { IconButton } from '@material-ui/core';
+import { Button, IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import React, {ChangeEvent, ChangeEventHandler} from 'react';
 import { AddItemForm } from './AddItemForm';
@@ -73,9 +73,9 @@ export function Todolist(props: PropsType) {
             }
         </ul>
         <div>
-            <button className={props.filter === 'all' ? 'active-filter':''} onClick={ onAllClickHandler }>All</button>
-            <button className={props.filter === 'active' ? 'active-filter':''} onClick={ onActiveClickHandler }>Active</button>
-            <button className={props.filter === 'completed' ? 'active-filter':''} onClick={ onCompletedClickHandler }>Completed</button>
+            <Button  variant={props.filter === 'all' ? 'contained':'text'} onClick={ onAllClickHandler }>All</Button>
+            <Button color={'primary'} variant={props.filter === 'active' ? 'contained':'text'} onClick={ onActiveClickHandler }>Active</Button>
+            <Button color={'secondary'} variant={props.filter === 'completed' ? 'contained':'text'} onClick={ onCompletedClickHandler }>Completed</Button>
         </div>
     </div>
 }
