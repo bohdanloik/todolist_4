@@ -1,4 +1,4 @@
-import { Button, IconButton } from '@material-ui/core';
+import { Button, Checkbox, IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import React, {ChangeEvent, ChangeEventHandler} from 'react';
 import { AddItemForm } from './AddItemForm';
@@ -63,7 +63,7 @@ export function Todolist(props: PropsType) {
                     }
 
                     return <li key={t.id} className={t.isDone ? 'is-done' : ''}>
-                        <input type="checkbox" onChange={onChangeStatusHadler} checked={t.isDone}/>
+                        <Checkbox  onChange={onChangeStatusHadler} checked={t.isDone}/>
                         <EditableSpan title={t.title} onChange={onChangeTitleHandler}/>
                         <IconButton aria-label="delete" onClick={onClickHandler}>
                             <Delete />
